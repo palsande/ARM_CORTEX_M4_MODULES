@@ -1,0 +1,20 @@
+/*
+ * initPortF.c
+ *
+ *  Created on: Jul 26, 2015
+ *      Author: Sandeep
+ */
+
+#include "tm4c123gh6pm.h"
+#include "initPortF.h"
+
+void initPortF()
+{
+	SYSCTL_RCGC2_R    |= SYSCTL_RCGC2_GPIOF;//Enable clock to Port F in legacy mode
+	SYSCTL_RCGCGPIO_R |= SYSCTL_RCGCGPIO_R5;//Enable clock to Port F
+	GPIO_PORTF_DIR_R  |= 0x02;//PF4 as input and PF1 as output
+	GPIO_PORTF_AFSEL_R  |= 0x02;
+
+
+}
+

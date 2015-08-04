@@ -1,0 +1,15 @@
+/*
+ * SysTickInterrupt.c
+ *
+ *  Created on: Jul 27, 2015
+ *      Author: Sandeep
+ */
+#include "tm4c123gh6pm.h"
+#include "SysTickInterrupt.h"
+
+void initSysTick()
+{
+
+}
+
+

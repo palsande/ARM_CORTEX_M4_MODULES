@@ -1,0 +1,61 @@
+/*
+ * initEEPROM.c
+ *
+ *  Created on: Jul 30, 2015
+ *      Author: Sandeep
+ */
+#include "tm4c123gh6pm.h"
+#include "initEEPROM.h"
+#include <stdint.h>
+#include <stdbool.h>
+void initEEPROM()
+{
+	SYSCTL_RCGCEEPROM_R |= SYSCTL_RCGCEEPROM_R0;//Enable and Clock EEPROM Module
+	__asm("NOP");//6 cycles delay
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	while((EEPROM_EEDONE_R & EEPROM_EEDONE_WORKING) == 0x00000000);//Poll WORKING bit of EEDONE Register
+	if((EEPROM_EESUPP_R & EEPROM_EESUPP_PRETRY) == 0x00000008)
+	{
+		//Put Error Message on UART
+	}
+	else if((EEPROM_EESUPP_R & EEPROM_EESUPP_PRETRY) == 0x00000004)
+	{
+		//Put Error Message on UART
+	}
+	else
+	{
+		//put All ok on UART
+	}
+	SYSCTL_SREEPROM_R |= SYSCTL_SREEPROM_R0;//Reset SREEPROM Module
+	__asm("NOP");//6 cycles delay
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	__asm("NOP");
+	while((EEPROM_EEDONE_R & EEPROM_EEDONE_WORKING) == 0x00000000);//Poll WORKING bit of EEDONE Register
+	if((EEPROM_EESUPP_R & EEPROM_EESUPP_PRETRY) == 0x00000008)
+		{
+			//Put Error Message on UART
+		    putsUart0("EEPROM ERROR\r\n");
+		}
+		else if((EEPROM_EESUPP_R & EEPROM_EESUPP_PRETRY) == 0x00000004)
+		{
+			//Put Error Message on UART
+			putsUart0("Serial Example\r\n");
+			putsUart0("Press '0' or '1'\r\n");
+			putcUart0('a');
+		}
+		else
+		{
+			putsUart0("Serial Example\r\n");
+			putsUart0("Press '0' or '1'\r\n");
+			putcUart0('a');
+		}
+
+}
+

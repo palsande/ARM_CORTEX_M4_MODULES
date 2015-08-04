@@ -1,0 +1,35 @@
+/*
+ * main.c
+ */
+#include <stdint.h>
+#include <stdbool.h>
+#include "tm4c123gh6pm.h"
+#include "initDisplay.h"
+#include "initEEPROM.h"
+uint32_t a[4];
+int main(void)
+{
+
+	// Configure HW to work with 16 MHz XTAL, PLL enabled, system clock of 40 MHz
+	SYSCTL_RCC_R = SYSCTL_RCC_USESYSDIV|SYSCTL_RCC_XTAL_16MHZ|SYSCTL_RCC_OSCSRC_MAIN|(4 << SYSCTL_RCC_SYSDIV_S);
+
+	// Set GPIO ports to use APB (not needed since default configuration -- for clarity)
+	// Note UART on port A must use APB
+    SYSCTL_GPIOHBCTL_R  = 0;//use of APB bus
+    initEEPROM();
+    //initUART0();
+    int i;
+    EEPROM_EEBLOCK_R   = EEPROM_EEBLOCK_BLOCK_S;//Block 0
+    EEPROM_EEOFFSET_R  = EEPROM_EEOFFSET_OFFSET_S;
+    for (i=0;i<4;i++)
+    {
+
+//Offset is one word
+    //EEPROM_EERDWR_R = i;
+    a[i] = EEPROM_EERDWRINC_R;
+    }
+    while(1)
+    {
+
+    }
+}

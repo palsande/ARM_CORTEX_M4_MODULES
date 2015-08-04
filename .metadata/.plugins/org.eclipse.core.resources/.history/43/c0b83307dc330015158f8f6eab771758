@@ -1,0 +1,27 @@
+/*
+ * initInterrupt.c
+ *
+ *  Created on: Jul 26, 2015
+ *      Author: Sandeep
+ */
+
+#include "tm4c123gh6pm.h"
+#include "initInterrupt.h"
+
+void initInterrupt()
+{
+	/* Interrupt Configuration */
+	// enable interrupts for PF4, PF0
+	GPIO_PORTF_IM_R |= 0x11;
+	// enable interrupt for PortF(IRQ 30) at NVIC
+	NVIC_EN0_R |= 0x40000000;
+	NVIC_PRI7_R = (NVIC_PRI7_R & 0xFF0FFFFF) | 0x00600000; // here PortF is given to prority 3
+	// PF4, PF0: falling-edge trigger
+	GPIO_PORTF_IS_R &= ~0x11;
+	GPIO_PORTF_IBE_R &= ~0x11;
+	GPIO_PORTF_IEV_R &= ~0x11; // falling-edge
+	// clear any priority interrupt
+	GPIO_PORTF_ICR_R |= 0x11;
+	EnableInterrupts();
+}
+

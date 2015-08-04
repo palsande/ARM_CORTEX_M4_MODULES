@@ -1,0 +1,16 @@
+/*
+ * initPortF.c
+ *
+ *  Created on: Jul 26, 2015
+ *      Author: Sandeep
+ */
+
+#include "tm4c123gh6pm.h"
+#include "initPortF.h"
+
+void initPortF()
+{
+	SYSCTL_RCGC2_R |= 0x00000020;//Enable clock to Port F
+
+}
+

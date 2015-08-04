@@ -1,0 +1,16 @@
+/*
+ * initEEPROM.c
+ *
+ *  Created on: Jul 30, 2015
+ *      Author: Sandeep
+ */
+#include "tm4c123gh6pm.h"
+#include <stdint.h>
+#include <stdbool.h>
+void initEEPROM()
+{
+	SYSCTL_RCGCEEPROM_R |= SYSCTL_RCGCEEPROM_R0;//Enable and Clock EEPROM Module
+
+
+}
+

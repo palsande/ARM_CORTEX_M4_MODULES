@@ -1,0 +1,1 @@
+"./writeI2C.obj" "./tm4c123gh6pm_startup_ccs.obj" "./slaveSelectI2C.obj" "./readI2C.obj" "./main.obj" "./initI2C.obj" "./displayUART.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 

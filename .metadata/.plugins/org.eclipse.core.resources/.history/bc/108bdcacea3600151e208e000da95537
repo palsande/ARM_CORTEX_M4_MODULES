@@ -1,0 +1,12 @@
+/*
+ * initEEPROM.c
+ *
+ *  Created on: Jul 30, 2015
+ *      Author: Sandeep
+ */
+#include "tm4c123gh6pm.h"
+void initEEPROM()
+{
+
+}
+

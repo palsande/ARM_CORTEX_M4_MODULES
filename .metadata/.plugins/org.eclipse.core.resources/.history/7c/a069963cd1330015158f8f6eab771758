@@ -1,0 +1,15 @@
+/*
+ * initPortF.c
+ *
+ *  Created on: Jul 26, 2015
+ *      Author: Sandeep
+ */
+
+#include "tm4c123gh6pm.h"
+#include "initPortF.h"
+
+void initPortF()
+{
+
+}
+

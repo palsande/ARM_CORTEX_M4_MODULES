@@ -1,0 +1,1 @@
+"./tm4c123gh6pm_startup_ccs.obj" "./main.obj" "./initEEPROM.obj" "./initDisplay.obj" "./delayModule.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 
