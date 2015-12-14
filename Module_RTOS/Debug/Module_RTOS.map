@@ -1,0 +1,205 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.1                      
+******************************************************************************
+>> Linked Thu Sep 03 17:01:03 2015
+
+OUTPUT FILE NAME:   <Module_RTOS.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 0000071d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  000008b8  0003f748  R  X
+  SRAM                  20000000   00008000  00000814  000077ec  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    000008b8   000008b8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    0000062c   0000062c    r-x .text
+  00000898    00000898    00000020   00000020    r-- .cinit
+20000000    20000000    00000814   00000000    rw-
+  20000000    20000000    00000800   00000000    rw- .stack
+  20000800    20000800    00000014   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    0000026c    0000062c     
+                  0000026c    00000148     setInitialStack.obj (.text)
+                  000003b4    00000114     main.obj (.text)
+                  000004c8    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00000564    00000094                                   : auto_init.obj (.text)
+                  000005f8    00000070     rtos_AddThreads.obj (.text)
+                  00000668    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  000006c6    00000002     --HOLE-- [fill = 0]
+                  000006c8    00000054     start_RTOS.obj (.text)
+                  0000071c    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00000764    00000044                                   : cpy_tbl.obj (.text)
+                  000007a8    00000044                                   : exit.obj (.text)
+                  000007ec    00000034     rtos_Launch.obj (.text)
+                  00000820    0000002c     rtos_Init.obj (.text)
+                  0000084c    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00000864    00000014                                   : _lock.obj (.text)
+                  00000878    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00000886    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00000892    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+
+.cinit     0    00000898    00000020     
+                  00000898    0000000f     (.cinit..data.load) [load image, compression = rle]
+                  000008a7    00000001     --HOLE-- [fill = 0]
+                  000008a8    00000008     (__TI_handler_table)
+                  000008b0    00000008     (__TI_cinit_table)
+
+.stack     0    20000000    00000800     UNINITIALIZED
+                  20000000    00000800     --HOLE--
+
+.data      0    20000800    00000014     UNINITIALIZED
+                  20000800    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20000808    00000008                                   : exit.obj (.data)
+                  20000810    00000004                                   : stkdepth_vars.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 000008b0 records: 1, size/record: 8, table size: 8
+	.data: load addr=00000898, load size=0000000f bytes, run addr=20000800, run size=00000014 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 000008a8 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+000007a9   C$$EXIT
+00000887   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+UNDEFED    SP
+000003d9   SysTick_Handler
+20000800   __STACK_END
+00000800   __STACK_SIZE
+20000200   __STACK_TOP
+000008b0   __TI_CINIT_Base
+000008b8   __TI_CINIT_Limit
+000008a8   __TI_Handler_Table_Base
+000008b0   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00000565   __TI_auto_init
+20000808   __TI_cleanup_ptr
+00000879   __TI_decompress_none
+00000893   __TI_decompress_rle24
+2000080c   __TI_dtors_ptr
+00000000   __TI_static_base__
+000004c9   __aeabi_memcpy
+000004c9   __aeabi_memcpy4
+000004c9   __aeabi_memcpy8
+ffffffff   __binit__
+ffffffff   __c_args__
+20000000   __stack
+0000084d   _args_main
+0000071d   _c_int00
+20000800   _lock
+00000873   _nop
+0000086b   _register_lock
+00000865   _register_unlock
+20000804   _unlock
+000007ad   abort
+ffffffff   binit
+00000765   copy_in
+UNDEFED    currentThread
+000007b5   exit
+00000000   g_pfnVectors
+0000043f   main
+20000810   main_func_sp
+000004c9   memcpy
+000005f9   rtos_AddThreads
+00000821   rtos_Init
+000007ed   rtos_Launch
+0000026d   setInitialStack
+UNDEFED    stacks
+000006c9   start_RTOS
+000003b5   task0
+000003c1   task1
+000003cd   task2
+UNDEFED    tcbs
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+0000026d   setInitialStack
+000003b5   task0
+000003c1   task1
+000003cd   task2
+000003d9   SysTick_Handler
+0000043f   main
+000004c9   __aeabi_memcpy
+000004c9   __aeabi_memcpy4
+000004c9   __aeabi_memcpy8
+000004c9   memcpy
+00000565   __TI_auto_init
+000005f9   rtos_AddThreads
+000006c9   start_RTOS
+0000071d   _c_int00
+00000765   copy_in
+000007a9   C$$EXIT
+000007ad   abort
+000007b5   exit
+000007ed   rtos_Launch
+00000800   __STACK_SIZE
+00000821   rtos_Init
+0000084d   _args_main
+00000865   _register_unlock
+0000086b   _register_lock
+00000873   _nop
+00000879   __TI_decompress_none
+00000887   ResetISR
+00000893   __TI_decompress_rle24
+000008a8   __TI_Handler_Table_Base
+000008b0   __TI_CINIT_Base
+000008b0   __TI_Handler_Table_Limit
+000008b8   __TI_CINIT_Limit
+20000000   __stack
+20000200   __STACK_TOP
+20000800   __STACK_END
+20000800   _lock
+20000804   _unlock
+20000808   __TI_cleanup_ptr
+2000080c   __TI_dtors_ptr
+20000810   main_func_sp
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+UNDEFED    SP
+UNDEFED    currentThread
+UNDEFED    stacks
+UNDEFED    tcbs
+
+[52 symbols]

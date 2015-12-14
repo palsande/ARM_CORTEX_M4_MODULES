@@ -2,6 +2,16 @@
 **** Build of configuration Debug for project Module_EEPROM ****
 
 "C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
-gmake: Nothing to be done for `all'.
+'Building file: ../main.c'
+'Invoking: ARM Compiler'
+"C:/ti/ccsv5/tools/compiler/arm_5.1.1/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me --include_path="C:/ti/ccsv5/tools/compiler/arm_5.1.1/include" --include_path="C:/ti/TivaWare_C_Series-1.1/inc" -g --diag_warning=225 --display_error_number --diag_wrap=off --preproc_with_compile --preproc_dependency="main.pp"  "../main.c"
+'Finished building: ../main.c'
+' '
+'Building target: Module_EEPROM.out'
+'Invoking: ARM Linker'
+"C:/ti/ccsv5/tools/compiler/arm_5.1.1/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --diag_warning=225 --display_error_number --diag_wrap=off -z -m"Module_EEPROM.map" --heap_size=1024 --stack_size=2048 -i"C:/ti/ccsv5/tools/compiler/arm_5.1.1/lib" -i"C:/ti/ccsv5/tools/compiler/arm_5.1.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Module_EEPROM_linkInfo.xml" --rom_model -o "Module_EEPROM.out"  "./tm4c123gh6pm_startup_ccs.obj" "./main.obj" "./initEEPROM.obj" "./initDisplay.obj" "./delayModule.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 
+<Linking>
+'Finished building target: Module_EEPROM.out'
+' '
 
 **** Build Finished ****

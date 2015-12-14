@@ -26,7 +26,7 @@ int main(void)
     //int i;
     EEPROM_EEBLOCK_R   = EEPROM_EEBLOCK_BLOCK_S;  //Current Block
     EEPROM_EEOFFSET_R  = 0x0;//Current Address offset
-    int i;
+    //int i;
     //for(i=10;i<=15;i++)
     //{
     EEPROM_EERDWRINC_R = 11;//Write to EEPROM

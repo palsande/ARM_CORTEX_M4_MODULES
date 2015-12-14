@@ -1,0 +1,1 @@
+"./tm4c123gh6pm_startup_ccs.obj" "./start_RTOS.obj" "./setInitialStack.obj" "./rtos_Launch.obj" "./rtos_Init.obj" "./rtos_AddThreads.obj" "./main.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 

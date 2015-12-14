@@ -1,0 +1,25 @@
+
+**** Build of configuration Debug for project Module_RTOS ****
+
+"C:\\ti\\ccsv5\\utils\\bin\\gmake" -k all 
+'Building target: Module_RTOS.out'
+'Invoking: ARM Linker'
+"C:/ti/ccsv5/tools/compiler/arm_5.1.1/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 --abi=eabi -me -g --diag_warning=225 --display_error_number --diag_wrap=off -z -m"Module_RTOS.map" --heap_size=1024 --stack_size=2048 -i"C:/ti/ccsv5/tools/compiler/arm_5.1.1/lib" -i"C:/ti/ccsv5/tools/compiler/arm_5.1.1/include" --reread_libs --warn_sections --display_error_number --diag_wrap=off --xml_link_info="Module_RTOS_linkInfo.xml" --rom_model -o "Module_RTOS.out"  "./tm4c123gh6pm_startup_ccs.obj" "./start_RTOS.obj" "./setInitialStack.obj" "./rtos_Launch.obj" "./rtos_Init.obj" "./rtos_AddThreads.obj" "./main.obj" "../tm4c123gh6pm.cmd" -l"libc.a" 
+<Linking>
+
+ undefined     first referenced     
+  symbol           in file          
+ ---------     ----------------     
+ SP            ./start_RTOS.obj     
+ currentThread ./start_RTOS.obj     
+ stacks        ./setInitialStack.obj
+ tcbs          ./setInitialStack.obj
+
+error #10234-D: unresolved symbols remain
+
+error #10010: errors encountered during linking; "Module_RTOS.out" not built
+>> Compilation failure
+gmake: *** [Module_RTOS.out] Error 1
+gmake: Target `all' not remade because of errors.
+
+**** Build Finished ****
